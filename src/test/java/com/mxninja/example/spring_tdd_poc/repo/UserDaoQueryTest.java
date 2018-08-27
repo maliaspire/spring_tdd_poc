@@ -26,7 +26,7 @@ import java.util.UUID;
  */
 
 @RunWith(SpringRunner.class)
-public class UserDaoQuery {
+public class UserDaoQueryTest {
 
     @TestConfiguration
     static class Config {

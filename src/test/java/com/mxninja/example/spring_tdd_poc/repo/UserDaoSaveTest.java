@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  */
 
 @RunWith(SpringRunner.class)
-public class UserDaoSave {
+public class UserDaoSaveTest {
 
     @TestConfiguration
     static class Config {
