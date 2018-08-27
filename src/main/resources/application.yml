@@ -1,0 +1,7 @@
+server:
+  port: 5656
+
+stp:
+  mongo:
+    host: localhost:27017
+    database: stp_service
