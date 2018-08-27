@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -59,7 +60,7 @@ public class UserDao {
         return USER_REPO.save(user);
     }
 
-    public UserDomain findByEmail(String email) {
+    public List<UserDomain> findByEmail(String email) {
         if (StringUtils.isEmpty(email)) {
             throw new NullPointerException("email should not be null or empty");
         }
@@ -87,6 +88,10 @@ public class UserDao {
             throw new NullPointerException("id should not be null or empty");
         }
         return USER_REPO.findById(uuid);
+    }
+
+    public List<UserDomain> findAll() {
+        return USER_REPO.findAll();
     }
 
 }

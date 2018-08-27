@@ -4,6 +4,7 @@ import com.mxninja.example.spring_tdd_poc.domain.UserDomain;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -15,6 +16,6 @@ import java.util.UUID;
 @Repository
 interface UserRepo extends MongoRepository<UserDomain, UUID> {
 
-    UserDomain findByEmailsContainingIgnoreCase(String email);
+    List<UserDomain> findByEmailsContainingIgnoreCase(String email);
 
 }

@@ -15,9 +15,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 8/27/2018
@@ -56,7 +55,7 @@ public class UserDaoQueryTest {
         user.getEmails().add("mxninja-@hotmail.com");
         user.setContactNumbers(new ArrayList<>());
 
-        Mockito.when(userDao.findByEmail("mxninja-@hotmail.com")).thenReturn(user);
+        Mockito.when(userDao.findByEmail("mxninja-@hotmail.com")).thenReturn(Collections.singletonList(user));
         Mockito.when(userDao.findById("3a3bf002-f348-4a82-8c24-91af7ffa61a2")).thenReturn(Optional.of(user));
     }
 
@@ -76,8 +75,8 @@ public class UserDaoQueryTest {
 
     @Test
     public void whenFindByEmailWithExistEmailReturnData() {
-        UserDomain userDomain = userDao.findByEmail("mxninja-@hotmail.com");
-        Assert.assertNotNull(userDomain);
+        List<UserDomain> list = userDao.findByEmail("mxninja-@hotmail.com");
+        Assert.assertTrue(list.size() > 0);
     }
 
     @Test
