@@ -19,6 +19,11 @@ public class ResponseModel<T> {
         this(ApiStatus.OK);
     }
 
+    public ResponseModel(ApiStatus status, T data) {
+        this(status);
+        this.data = data;
+    }
+
     public ResponseModel(ApiStatus status) {
         this(status.getCode(), status.getMessage());
     }
